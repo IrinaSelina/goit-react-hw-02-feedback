@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import Section from "../Section/Section";
-import Title from "../Title/Title";
-import Button from "../Button/Button";
-import Statistics from "../Statistics/Statistics";
-import Notification from "../Notification/Notification";
+import Section from "../Section";
+import Title from "../Title";
+import Button from "../Button";
+import Statistics from "../Statistics";
+import Notification from "../Notification";
 
-class Fedback extends Component {
+class Feedback extends Component {
   state = {
     good: 0,
     neutral: 0,
@@ -33,6 +33,7 @@ class Fedback extends Component {
   };
 
   render() {
+    const { good, bad, neutral, total, positivePercentage } = this.state;
     return (
       <Section>
         <Title message="Please leave feedback" />
@@ -41,17 +42,15 @@ class Fedback extends Component {
           options={["good", "neutral", "bad"]}
         />
         <h2>Statistics</h2>
-        {this.state.good === 0 &&
-        this.state.bad === 0 &&
-        this.state.neutral === 0 ? (
+        {good === 0 && bad === 0 && neutral === 0 ? (
           <Notification message="No feedback given" />
         ) : (
           <Statistics
-            good={this.state.good}
-            neutral={this.state.neutral}
-            bad={this.state.bad}
-            total={this.state.total}
-            positivePercentage={this.state.positivePercentage}
+            good={good}
+            neutral={neutral}
+            bad={bad}
+            total={total}
+            positivePercentage={positivePercentage}
           />
         )}
       </Section>
@@ -59,4 +58,4 @@ class Fedback extends Component {
   }
 }
 
-export default Fedback;
+export default Feedback;

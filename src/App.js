@@ -1,5 +1,5 @@
 import React from "react";
 
-import Fedback from "./Components/Feedback/Feedback";
-const App = () => <Fedback />;
+import Feedback from "./Components/Feedback";
+const App = () => <Feedback />;
 export default App;
